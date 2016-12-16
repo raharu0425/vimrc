@@ -121,3 +121,39 @@ map <C-Up> <Up><Up><Up><Up><Up>
 imap <C-Up> <Up><Up><Up><Up><Up>
 map <C-Down> <Down><Down><Down><Down><Down>
 imap <C-Down> <Down><Down><Down><Down><Down>
+
+"-------------------------------------------------
+" バンドル管理
+"-------------------------------------------------
+"Vi互換OFF
+set nocompatible
+filetype off
+if has('vim_starting')
+set runtimepath+=~/.vim/bundle/neobundle.vim/
+    call neobundle#begin(expand('~/.vim/bundle/'))
+    NeoBundle 'Shougo/neobundle.vim'
+    NeoBundle 'Shougo/vimproc'
+    NeoBundle 'Shougo/neocomplcache'
+    call neobundle#end()
+endif
+
+
+"ファイル形式別プラグインのロードを有効化
+filetype plugin on
+filetype indent on
+
+"-------------------------------------------------
+" neocomplcache設定
+"-------------------------------------------------
+"辞書ファイル
+autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dictionaries/php.dict filetype=php
+let g:neocomplcache_enable_at_startup = 1
+let g:neocomplcache_enable_camel_case_completion = 1
+let g:neocomplcache_enable_underbar_completion = 1
+let g:neocomplcache_smart_case = 1
+let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_manual_completion_start_length = 0
+let g:neocomplcache_caching_percent_in_statusline = 1
+let g:neocomplcache_enable_skip_completion = 1
+let g:neocomplcache_skip_input_time = '0.5'
+
