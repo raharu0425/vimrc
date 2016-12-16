@@ -10,6 +10,9 @@ set laststatus=2 "ステータスラインを常に表示
 " syntax
 syntax on
 
+" コマンドモードでtab補完
+set nocompatible
+
 " 行は出す
 set number
 
@@ -43,14 +46,14 @@ set formatoptions=lmoq
 " ビープ音 ビジュアルベルを使用しない
 set vb t_vb=
 
-"スペースとタブを表示させる
+" スペースとタブを表示させる
 set lcs=tab:>.,trail:_,extends:\
 set list
 "highlight SpecialKey cterm=NONE ctermfg=7 guifg=7
-highlight JpSpace cterm=underline ctermfg=7 guifg=7
+highlight JpSpace cterm=underline ctermfg=Blue guifg=Blue
 au BufRead,BufNew * match JpSpace /　/
 
-"タグリスト
+" タグリスト
 set tags=tags
 let Tlist_Ctags_Cmd = "/usr/bin/ctags"
 let Tlist_Show_One_File = 1 "現在編集中のソースのタグしか表示しない
